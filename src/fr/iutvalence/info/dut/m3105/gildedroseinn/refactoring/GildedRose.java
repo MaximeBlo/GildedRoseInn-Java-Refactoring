@@ -35,39 +35,38 @@ public class GildedRose
 	{
 		for (int i = 0; i < items.size(); i++)
 		{
-			int currentItemQuality = items.get(i).getQuality();
 			if ((!"Aged Brie".equals(items.get(i).getName()))
 					&& !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 			{
-				if (currentItemQuality > MIN_QUALITY)
+				if (items.get(i).getQuality() > MIN_QUALITY)
 				{
 					if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
 					{
-						items.get(i).setQuality(currentItemQuality - 1);
+						items.get(i).setQuality(items.get(i).getQuality() - 1);
 					}
 				}
 			}
 			else
 			{
-				if (currentItemQuality < MAX_QUALITY)
+				if (items.get(i).getQuality() < MAX_QUALITY)
 				{
-					items.get(i).setQuality(currentItemQuality + 1);
+					items.get(i).setQuality(items.get(i).getQuality() + 1);
 
 					if ("Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 					{
 						if (items.get(i).getSellIn() < 11)
 						{
-							if (currentItemQuality < MAX_QUALITY)
+							if (items.get(i).getQuality() < MAX_QUALITY)
 							{
-								items.get(i).setQuality(currentItemQuality + 1);
+								items.get(i).setQuality(items.get(i).getQuality() + 1);
 							}
 						}
 
 						if (items.get(i).getSellIn() < 6)
 						{
-							if (currentItemQuality < MAX_QUALITY)
+							if (items.get(i).getQuality() < MAX_QUALITY)
 							{
-								items.get(i).setQuality(currentItemQuality + 1);
+								items.get(i).setQuality(items.get(i).getQuality() + 1);
 							}
 						}
 					}
@@ -85,24 +84,24 @@ public class GildedRose
 				{
 					if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
 					{
-						if (currentItemQuality > MIN_QUALITY)
+						if (items.get(i).getQuality() > MIN_QUALITY)
 						{
 							if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
 							{
-								items.get(i).setQuality(currentItemQuality - 1);
+								items.get(i).setQuality(items.get(i).getQuality() - 1);
 							}
 						}
 					}
 					else
 					{
-						items.get(i).setQuality(currentItemQuality - currentItemQuality);
+						items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
 					}
 				}
 				else
 				{
-					if (currentItemQuality < MAX_QUALITY)
+					if (items.get(i).getQuality() < MAX_QUALITY)
 					{
-						items.get(i).setQuality(currentItemQuality + 1);
+						items.get(i).setQuality(items.get(i).getQuality() + 1);
 					}
 				}
 			}
